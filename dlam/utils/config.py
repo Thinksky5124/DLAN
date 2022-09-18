@@ -2,7 +2,7 @@
 Author       : Thyssen Wen
 Date         : 2022-09-17 16:38:31
 LastEditors  : Thyssen Wen
-LastEditTime : 2022-09-17 21:11:01
+LastEditTime : 2022-09-18 08:40:50
 Description  : config load function
 FilePath     : /DLAN/dlam/utils/config.py
 '''
@@ -10,57 +10,23 @@ import os
 import yaml
 from .collect_env import collect_env
 from .logging import get_logger, get_root_logger
+from mmcv import Config
 
-__all__ = ['get_config']
-
-
-class AttrDict(dict):
-    def __getattr__(self, key):
-        return self[key]
-
-    def __setattr__(self, key, value):
-        if key in self.__dict__:
-            self.__dict__[key] = value
-        else:
-            self[key] = value
-
-
-def create_attr_dict(yaml_config):
-    from ast import literal_eval
-    for key, value in yaml_config.items():
-        if type(value) is dict:
-            yaml_config[key] = value = AttrDict(value)
-        if isinstance(value, str):
-            try:
-                value = literal_eval(value)
-            except BaseException:
-                pass
-        if isinstance(value, AttrDict):
-            create_attr_dict(yaml_config[key])
-        else:
-            yaml_config[key] = value
 
 def get_config(fname, overrides=None, show=True, logger_path="output"):
     """
     Read config from file
     """
     assert os.path.exists(fname), ('config file({}) is not exist'.format(fname))
-    config = parse_config(fname)
-    if "logging_file_name" not in config:
-        config.logging_file_name = "dlam"
+    config = Config.fromfile(fname)
+    if "work_dir" not in config:
+        config.work_dir = "dlam"
 
-    logger = get_root_logger(log_file=f"./"+ logger_path + f"/{config.logging_file_name}")
+    logger = get_root_logger(log_file=f"./"+ logger_path + f"/{config.work_dir}")
     override_config(config, overrides)
     if show:
         print_config(config)
     return config
-
-def parse_config(cfg_file):
-    """Load a config file into AttrDict"""
-    with open(cfg_file, 'r') as fopen:
-        yaml_config = AttrDict(yaml.load(fopen, Loader=yaml.SafeLoader))
-    create_attr_dict(yaml_config)
-    return yaml_config
 
 def override(dl, ks, v):
     """

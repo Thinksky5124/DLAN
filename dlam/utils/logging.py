@@ -2,13 +2,14 @@
 Author       : Thyssen Wen
 Date         : 2022-09-17 16:42:06
 LastEditors  : Thyssen Wen
-LastEditTime : 2022-09-17 20:42:27
+LastEditTime : 2022-09-18 08:53:16
 Description  : logging module ref:https://github.com/open-mmlab/mmcv/blob/master/mmcv/utils/logging.py
 FilePath     : /DLAN/dlam/utils/logging.py
 '''
 import os
 import logging
 import torch.distributed as dist
+
 
 logger_initialized: dict = {}
 
