@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>DLAN</name>
+  <name>dlan</name>
   <version>0.0.0</version>
   <description>A rich, leading and practical library of deep learning automatic navigation ROS package</description>
   <maintainer email="Thinksky5124@outlook.com">thyssen</maintainer>

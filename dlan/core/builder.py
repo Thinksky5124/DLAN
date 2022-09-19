@@ -2,11 +2,11 @@
 Author       : Thyssen Wen
 Date         : 2022-09-18 08:27:10
 LastEditors  : Thyssen Wen
-LastEditTime : 2022-09-18 08:29:31
+LastEditTime : 2022-09-19 07:13:25
 Description  : Build Core
-FilePath     : /DLAN/dlam/core/builder.py
+FilePath     : /DLAN/dlan/core/builder.py
 '''
-from mmcv.utils import Registry
+from dlan.utils import Registry
 
 RUNNERS = Registry('runners')
 
