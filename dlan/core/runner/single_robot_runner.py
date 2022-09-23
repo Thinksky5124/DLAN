@@ -2,9 +2,9 @@
 Author       : Thyssen Wen
 Date         : 2022-09-18 04:05:16
 LastEditors  : Thyssen Wen
-LastEditTime : 2022-09-18 08:42:22
+LastEditTime : 2022-09-23 08:52:54
 Description  : SingleRobotRunner Runner
-FilePath     : /DLAN/dlam/core/runner/single_robot_runner.py
+FilePath     : /DLAN/dlan/core/runner/single_robot_runner.py
 '''
 import logging
 from launch import LaunchDescription
@@ -15,8 +15,8 @@ from ..builder import RUNNERS
 class SingleRobotRunner(BaseRunner):
     def __init__(self,
                  logger: logging.Logger,
-                 node_list: list) -> None:
-        super().__init__(logger, node_list)
+                 server_list: list) -> None:
+        super().__init__(logger, server_list)
     
     def run(self) -> None:
-        self.ld = LaunchDescription(self.node_list)
+        self.ld = LaunchDescription(self.server_list)

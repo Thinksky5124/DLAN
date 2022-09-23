@@ -26,7 +26,6 @@ setup(
             ['resources/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='thyssen',
     maintainer_email='Thinksky5124@outlook.com',
@@ -37,6 +36,7 @@ setup(
     install_requires=[
         "pytorch >= 1.12.0",
         "pyyaml",
+        'setuptools',
     ],
     package_data={
         'scripts': [".sh"],
