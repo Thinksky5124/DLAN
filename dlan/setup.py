@@ -2,9 +2,9 @@
 Author       : Thyssen Wen
 Date         : 2022-09-18 09:06:20
 LastEditors  : Thyssen Wen
-LastEditTime : 2022-09-19 07:23:23
+LastEditTime : 2022-09-30 08:30:03
 Description  : file content
-FilePath     : /DLAN/setup.py
+FilePath     : /DLAN/dlan/setup.py
 '''
 from setuptools import setup, find_packages
 import sys
@@ -36,11 +36,7 @@ setup(
     install_requires=[
         "pytorch >= 1.12.0",
         "pyyaml",
-        'setuptools',
     ],
-    package_data={
-        'scripts': [".sh"],
-    },
     python_requires='>={}'.format(python_min_version_str),
     entry_points={
         'console_scripts': [

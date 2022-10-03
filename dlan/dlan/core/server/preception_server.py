@@ -7,7 +7,7 @@ Description  : Preception Server Class
 FilePath     : /DLAN/dlan/core/server/preception_server.py
 '''
 import logging
-from launch import LaunchDescription
+from dlan.launch import LaunchDescription
 from .action_server import ActionServer
 from ..builder import SERVERS
 

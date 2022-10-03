@@ -7,7 +7,7 @@ Description  : SingleRobotRunner Runner
 FilePath     : /DLAN/dlan/core/runner/single_robot_runner.py
 '''
 import logging
-from launch import LaunchDescription
+from dlan.launch import LaunchDescription
 from .base_runner import BaseRunner
 from ..builder import RUNNERS
 
